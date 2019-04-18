@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ohm's Law</title>
+
+    <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <style>
+        .dropdown-toggle {
+            width: 120px;
+        }
+        .input-group-text {
+            width: 100px;
+        }
+        .container {
+            margin-top: 8px;
+            max-width: 650px;
+        }
+        img {
+            max-width: 400px;
+            width:      80%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Ohm's Law</span>
+    </nav>
+
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="input-power">Power</label>
+                <div class="input-group">
+                    <input type="text" id="input-power" class="form-control" aria-label="Text input with dropdown button" placeholder="1.0">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Watts</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item " href="#">Watts</a>
+                            <a class="dropdown-item " href="#">Kilowatts</a>
+                            <a class="dropdown-item " href="#">Megawatts</a>
+                            <a class="dropdown-item " href="#">Gigawatts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-voltage">Voltage</label>
+                <div class="input-group">
+                    <input type="text" id="input-voltage" class="form-control" aria-label="Text input with dropdown button" placeholder="10.0">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Volts</button>
+                        <div class="dropdown-menu">                            
+                            <a class="dropdown-item" href="#">Volts</a>
+                            <a class="dropdown-item" href="#">Kilovolts</a>
+                            <a class="dropdown-item" href="#">Megavolts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-current">Current</label>
+                <div class="input-group">
+                    <input type="text" id="input-current" class="form-control" aria-label="Text input with dropdown button" placeholder="10.0">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Amps</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Amps</a>
+                            <a class="dropdown-item" href="#">Milliamps</a>
+                            <a class="dropdown-item" href="#">Microamps</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-resistance">Resistance</label>
+                <div class="input-group">
+                    <input type="text" id="input-resistance" class="form-control" aria-label="Text input with dropdown button" placeholder="100.0">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ohms</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Ohms</a>
+                            <a class="dropdown-item" href="#">K Ohms</a>
+                            <a class="dropdown-item" href="#">M Ohms</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <img src="images/ohmslaw.png" alt="ohm's law">
+    </div>
+    <script>
+        // Voltage (V) = Current (I) * Resistance (R) 
+        // Power (P) = Voltage (V) * Current (I)
+        // power = 1.0,
+        // voltage = 10.0,
+        // current = 100.0,
+        // resistance = 100.0;
+
+        var power = 1.0,
+            voltage = 10.0,
+            current = 100.0,
+            resistance = 100.0,
+            powerMultiplier = 1,
+            voltageMultiplier = 1,
+            currentMultiplier = 1,
+            resistancMultplier = 1;
+
+        // update dropdown button whenever a list item is selected
+        var entryList = document.getElementsByClassName("input-group-append");        
+        [].forEach.call(entryList, function(elx){
+            var listItems = elx.getElementsByClassName("dropdown-item");
+            var btn = elx.getElementsByClassName("dropdown-toggle")[0];
+            [].forEach.call(listItems, function(ely){
+                ely.addEventListener("click",function(){
+                    btn.innerHTML = ely.innerHTML;
+                })
+            })
+        })
+
+        // events for value input
+        var txtInput = document.getElementsByTagName("input");
+        [].forEach.call(txtInput, function(el){
+            el.addEventListener("input", function(){
+                updateValues(this);
+            })
+        })
+
+        //update values
+        function updateValues(preserveElement) {
+            switch (preserveElement.id) {
+                case "input-power":
+                    console.log("You cannot change the Wattage");
+                    break;
+                case "input-current":
+                    current = preserveElement.value;
+                    voltage = current * resistance;
+                    power = voltage * current;
+                    break;
+                case "input-resistance":
+                    resistance = preserveElement.value;
+                    current = voltage / resistance;
+                    power = voltage * current;
+                    break;
+                case "input-voltage":
+                    voltage = preserveElement.value;
+                    current = voltage / resistance;
+                    power = voltage * current;
+                    break;
+                default:
+                    break;
+            }
+
+            [].forEach.call(txtInput, function(el){
+                if (el.id != preserveElement.id)
+                    switch (el.id) {
+                        case "input-power":
+                            el.value = power * powerMultiplier;
+                            break;
+                        case "input-current":
+                            el.value = current * currentMultiplier;
+                            break;
+                        case "input-resistance":
+                            el.value = resistance * resistancMultplier;
+                            break;
+                        case "input-voltage":
+                            el.value = voltage * voltageMultiplier;
+                            break;
+                    
+                        default:
+                            break;
+                    }
+                }
+            )
+        }
+        
+        // report value debug
+        function reportValues() {
+            console.log("power: " + power + "\nvoltage: " + voltage + "\ncurrent: " + current + "\nresistance: " + resistance);
+        }
+    </script>
+</body>
+</html>
