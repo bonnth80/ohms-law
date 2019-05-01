@@ -12,7 +12,7 @@ var power = 1.0,
    powerMultiplier = 1.0,
    voltageMultiplier = 1.0,
    currentMultiplier = 1.0,
-   resistancMultplier = 1.0,
+   resistanceMultplier = 1.0,
    modifiedValue;
 
 var txtPower = document.getElementById("input-power");
@@ -75,17 +75,18 @@ dduA.addEventListener("click",function(){
    txtCurrent.value = (current * currentMultiplier).toFixed(3);
 });
 ddO.addEventListener("click",function(){
-   resistancMultplier = 1.0;
-   txtResistance.value = (resistance * resistancMultplier).toFixed(3);
+   resistanceMultplier = 1.0;
+   txtResistance.value = (resistance * resistanceMultplier).toFixed(3);
 });
 ddKO.addEventListener("click",function(){
-   resistancMultplier = .001;
-   txtResistance.value = (resistance * resistancMultplier).toFixed(3);
+   resistanceMultplier = .001;
+   txtResistance.value = (resistance * resistanceMultplier).toFixed(3);
 });
 ddMO.addEventListener("click",function(){
-   resistancMultplier = .000001;
-   txtResistance.value = (resistance * resistancMultplier).toFixed(3);
+   resistanceMultplier = .000001;
+   txtResistance.value = (resistance * resistanceMultplier).toFixed(3);
 });
+
 
 // update dropdown button whenever a list item is selected
 var entryList = document.getElementsByClassName("input-group-append");
@@ -118,10 +119,14 @@ btnRefreshButtons.forEach(function(el)  {
 
 // voltage refresh button
 btnRefreshButtons[0].addEventListener("click", function (){
+   current = txtCurrent.value * (1/currentMultiplier);
+   resistance = txtResistance.value * (1/resistanceMultplier);
+
    voltage = current * resistance;
    txtVoltage.value = (voltage * voltageMultiplier).toFixed(3);
    power = voltage*current;
    txtPower.value = (power*powerMultiplier).toFixed(3);
+
    btnRefreshButtons.forEach(function(el){
       el.hide();
    })
@@ -130,11 +135,14 @@ btnRefreshButtons[0].addEventListener("click", function (){
 
 // current refresh button
 btnRefreshButtons[1].addEventListener("click", function (){
-   console.log(this.value);
+   voltage = txtVoltage.value * (1/voltageMultiplier);
+   resistance = txtResistance.value * (1/resistanceMultplier);
+
    current = voltage / resistance;
    txtCurrent.value = (current * currentMultiplier).toFixed(3);
    power = voltage*current;
    txtPower.value = (power*powerMultiplier).toFixed(3);
+
    btnRefreshButtons.forEach(function(el){
       el.hide();
    })
@@ -142,11 +150,14 @@ btnRefreshButtons[1].addEventListener("click", function (){
 
 // resistance refresh button
 btnRefreshButtons[2].addEventListener("click", function (){
-   console.log("hello");
+   current = txtCurrent.value * (1/currentMultiplier);
+   voltage = txtVoltage.value * (1/voltageMultiplier);
+   
    resistance = voltage / current;
    txtResistance.value = (resistance * resistancMultplier).toFixed(3);
    power = voltage*current;
    txtPower.value = (power*powerMultiplier).toFixed(3);
+
    btnRefreshButtons.forEach(function(el){
       el.hide();
    })
