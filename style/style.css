@@ -9,12 +9,15 @@
 
 .container {
    margin-top: 8px;
-   max-width: 650px;
+   max-width: 350px;
 }
 
 img {
    max-width: 400px;
    width:      80%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 .btn-danger {
@@ -25,3 +28,32 @@ img {
    border: none;
    transition-duration: 200ms;
 }
+
+/*  Profile Links */
+/* ******************************************** */
+#profLinks,  #profLinks a[href^="mailto"]{
+   font-size: 24px;
+   text-align: center;
+   transition-duration: 200ms;
+   color: rgb(255, 255, 255);
+ }
+ 
+ #profLinks a {
+   text-decoration: none;
+ }
+ 
+ #profLinks a:hover, #profLinks a:visited:hover,
+ #profLinks a[href^="mailto"]:hover, #profLinks a[href^="mailto"]:visited:hover{
+   transition-duration: 200ms;
+   color: rgb(0, 217, 255);
+ }
+ 
+ #profLinks a:visited, #profLinks a[href^="mailto"]:visited{
+   transition-duration: 200ms;
+   color: rgb(255, 255, 255);
+ }
+
+ #credits {
+    text-align: center;
+    font-size: 12px;
+ }

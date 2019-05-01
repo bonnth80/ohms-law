@@ -21,21 +21,42 @@
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">Ohm's Law</span>
+      
+        <div id="profLinks">
+           <a href="https://1drv.ms/b/s!AriNDWWFubePgu1fIKLKfbVkU8ADdQ" target="_blank">
+              <i class="far fa-file-alt"></i>
+           </a>
+           <a href="https://www.github.com/bonnth80" target="_blank">
+              <i class="fab fa-github"></i>
+           </a>
+           <a href="https://www.linkedin.com/in/thomas-bonner-b962562/" target="_blank">
+                 <i class="fab fa-linkedin"></i>
+           </a>
+           <a href="mailto:zerosavant@yahoo.com">
+                 <i class="far fa-envelope"></i>
+           </a>
+        </div>
     </nav>
 
     <div class="container">
+        <div class="row">
+            <div class="col" id="credits">
+                <span>Developed by <a href="http://tbonner.atwebpages.com">Thomas Bonner</a></span>
+            </div>
+        </div>
+        
         <form>
             <div class="form-group">
                 <label for="input-power">Power</label>
                 <div class="input-group">
-                    <input type="text" id="input-power" class="form-control" aria-label="Text input with dropdown button" placeholder="1.0">
+                    <input type="text" id="input-power" class="form-control" aria-label="Text input with dropdown button" value="1.0" disabled>
                     <div class="input-group-append">
                         <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Watts</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item " href="#">Watts</a>
-                            <a class="dropdown-item " href="#">Kilowatts</a>
-                            <a class="dropdown-item " href="#">Megawatts</a>
-                            <a class="dropdown-item " href="#">Gigawatts</a>
+                            <a id="ddw" class="dropdown-item" href="#">Watts</a>
+                            <a id="ddKw" class="dropdown-item" href="#">Kilowatts</a>
+                            <a id="ddMw" class="dropdown-item" href="#">Megawatts</a>
+                            <a id="ddGw" class="dropdown-item" href="#">Gigawatts</a>
                         </div>
                     </div>
                 </div>
@@ -48,9 +69,9 @@
                     <div class="input-group-append">
                         <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Volts</button>
                         <div class="dropdown-menu">                            
-                            <a class="dropdown-item" href="#">Volts</a>
-                            <a class="dropdown-item" href="#">Kilovolts</a>
-                            <a class="dropdown-item" href="#">Megavolts</a>
+                            <a id="ddv" class="dropdown-item" href="#">Volts</a>
+                            <a id="ddKv" class="dropdown-item" href="#">Kilovolts</a>
+                            <a id="ddMv" class="dropdown-item" href="#">Megavolts</a>
                         </div>
                     </div>
                 </div>
@@ -63,9 +84,9 @@
                     <div class="input-group-append">
                         <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Amps</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Amps</a>
-                            <a class="dropdown-item" href="#">Milliamps</a>
-                            <a class="dropdown-item" href="#">Microamps</a>
+                            <a id="ddA" class="dropdown-item" href="#">Amps</a>
+                            <a id="ddmA" class="dropdown-item" href="#">Milliamps</a>
+                            <a id="dduA" class="dropdown-item" href="#">Microamps</a>
                         </div>
                     </div>
                 </div>
@@ -78,9 +99,9 @@
                     <div class="input-group-append">
                         <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ohms</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Ohms</a>
-                            <a class="dropdown-item" href="#">K Ohms</a>
-                            <a class="dropdown-item" href="#">M Ohms</a>
+                            <a id="ddO" class="dropdown-item" href="#">Ohms</a>
+                            <a id="ddKO" class="dropdown-item" href="#">K Ohms</a>
+                            <a id="ddMO" class="dropdown-item" href="#">M Ohms</a>
                         </div>
                     </div>
                 </div>
