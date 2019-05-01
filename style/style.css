@@ -1,0 +1,27 @@
+
+.dropdown-toggle {
+   width: 120px;
+}
+
+.input-group-text {
+   width: 100px;
+}
+
+.container {
+   margin-top: 8px;
+   max-width: 650px;
+}
+
+img {
+   max-width: 400px;
+   width:      80%;
+}
+
+.btn-danger {
+   /* width: 42px;
+   padding: 0px 12px; */
+   width: 0px;
+   padding: 0px;
+   border: none;
+   transition-duration: 200ms;
+}
