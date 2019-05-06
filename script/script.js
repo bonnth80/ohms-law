@@ -154,7 +154,7 @@ btnRefreshButtons[2].addEventListener("click", function (){
    voltage = txtVoltage.value * (1/voltageMultiplier);
    
    resistance = voltage / current;
-   txtResistance.value = (resistance * resistancMultplier).toFixed(3);
+   txtResistance.value = (resistance * resistanceMultplier).toFixed(3);
    power = voltage*current;
    txtPower.value = (power*powerMultiplier).toFixed(3);
 
