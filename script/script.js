@@ -175,26 +175,20 @@ var txtInput = document.getElementsByTagName("input");
 function updateValues(preserveElement) {
    switch (preserveElement.id) {
          case "input-power":
-            console.log("You cannot change the Wattage");
+            console.log("script.js: updateValues() - Invalid update");
             break;
          case "input-current":
             current = preserveElement.value;
-            // voltage = current * resistance;
-            // power = voltage * current;
             btnRefreshButtons[0].unhide();
             btnRefreshButtons[2].unhide();
             break;
          case "input-resistance":
             resistance = preserveElement.value;
-            // current = voltage / resistance;
-            // power = voltage * current;
             btnRefreshButtons[0].unhide();
             btnRefreshButtons[1].unhide();
             break;
          case "input-voltage":
             voltage = preserveElement.value;
-            // current = voltage / resistance;
-            // power = voltage * current;
             btnRefreshButtons[1].unhide();
             btnRefreshButtons[2].unhide();
             break;
